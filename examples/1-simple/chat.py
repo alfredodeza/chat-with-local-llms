@@ -33,21 +33,3 @@ while True:
     # Completion will return a response that we need to use to get the acctual string
     print(completion)
     print(completion['choices'][0]['message']['content'])
-
-
-
-app = FastAPI()
-
-
-class Body(BaseModel):
-    text: str
-
-
-@app.get('/')
-def root():
-    return Response("<h1>A self-documenting API that uses the FastAPI framework</h1>")
-
-
-@app.post('/generate')
-def predict(body: Body):
-    return {"text": body.text}
